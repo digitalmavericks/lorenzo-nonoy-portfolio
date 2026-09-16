@@ -774,6 +774,24 @@ footer {
   border: 1px solid var(--line);
 }
 
+.portrait {
+  width: 148px;
+  height: 148px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  box-shadow: 0 0 0 6px rgba(200, 245, 66, 0.08);
+}
+
+.portrait-lg {
+  width: min(280px, 100%);
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+}
+
 .split-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
