@@ -8,12 +8,5 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/assets/:path*",
-      "destination": "https://raw.githubusercontent.com/digitalmavericks/lorenzo-nonoy-portfolio/main/assets/:path*",
-      "permanent": false
-    }
   ]
 }
