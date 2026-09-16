@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Webinar operating system · Lorenzo Nonoy</title>
+  <meta name="description" content="Webinar-to-CRM automation with attendance zones, CTA tags, no-show recovery, UTM integrity, and conversation AI.">
+  <meta name="theme-color" content="#070807">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="logo" href="/" aria-label="Lorenzo Nonoy home">LN</a>
+    <nav class="nav" aria-label="Primary">
+      <a class="active" href="/#work">Work</a>
+      <a href="/#systems">Systems</a>
+      <a href="/about">About</a>
+      <a href="/assets/Lorenzo_Nonoy_Resume.pdf">Resume</a>
+    </nav>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Open menu">Menu</button>
+      <a class="header-cta" href="/#contact">Let’s talk <span>→</span></a>
+    </div>
+  </header>
+  <div class="nav-panel" data-nav-panel>
+    <a href="/#work">Work</a>
+    <a href="/about">About</a>
+    <a href="/#contact">Let’s talk</a>
+  </div>
+
+  <section class="case-hero">
+    <div class="wrap">
+      <p class="kicker">03 · Operating system · Multi-brand</p>
+      <h1>Follow-up that matches what they watched.</h1>
+      <p class="lede" style="margin-top:20px">StealthSeminar to n8n to GoHighLevel. Registrants, attendees, time-based zones, CTA clickers, no-shows. Then Conversation AI and voice so the hot lead is not a tag with no owner.</p>
+      <div class="media">
+        <img src="/assets/images/case-webinar.jpg" alt="Concentric glowing rings representing attendance zones">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div>
+        <p class="kicker">The problem</p>
+        <h2>“Attended” is not a segment.</h2>
+      </div>
+      <div>
+        <p>Someone who left at minute 12 and someone who stayed through the CTA are not the same contact. If both get the same sequence, sales wastes time and buyers feel the mismatch.</p>
+        <p>I built the webinar operating system used across client brands: event webhooks into n8n, CRM upserts that keep UTMs and join links, zone tags based on minutes watched, CTA click tags, and a no-show path. Migrated the legacy Zapier mirror onto n8n so the stack had one owner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="kicker">Zone model</p>
+      <h2 style="margin-bottom:24px">Time is the qualifier.</h2>
+      <div class="map">
+        <div class="map-row">
+          <div class="map-label">Register</div>
+          <div class="map-nodes">
+            <div class="node">Stealth event</div>
+            <div class="node">GHL contact upsert</div>
+            <div class="node">Join + replay fields</div>
+            <div class="node">UTM + landing URL</div>
+          </div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">Watch</div>
+          <div class="map-nodes">
+            <div class="node">Attended</div>
+            <div class="node">Zone by minutes</div>
+            <div class="node">Stayed till CTA</div>
+            <div class="node">Left before CTA</div>
+          </div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">Intent</div>
+          <div class="map-nodes">
+            <div class="node hot">On-video CTA click</div>
+            <div class="node hot">Beneath-video CTA click</div>
+            <div class="node">No-show</div>
+            <div class="node">Replay request</div>
+          </div>
+        </div>
+        <div class="map-row">
+          <div class="map-label">Human</div>
+          <div class="map-nodes">
+            <div class="node">Conversation AI (SMS)</div>
+            <div class="node">Voice follow-up</div>
+            <div class="node">Objection logging</div>
+            <div class="node">Pipeline + booking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap prose">
+      <div>
+        <p class="kicker">Integrity</p>
+        <h2>Attribution is a field, not a story.</h2>
+      </div>
+      <div>
+        <p>Every path writes source, medium, campaign, content, landing-page URL, and click IDs into the CRM. Join and replay links live on the contact, not in a webinar vendor the sales team cannot open. That is how a media buyer, a closer, and an automation can argue from the same record.</p>
+        <p>Same pattern on AML and APPS webinars: different zone thresholds, same operating idea. Follow-up is a function of watch behavior.</p>
+        <p><a class="arrow" href="/work/publish-and-prosper">See it inside Publish &amp; Prosper →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="/#work">← All work</a>
+    <span>Webinar OS · Digital Mavericks</span>
+  </footer>
+  <script src="/js/main.js"></script>
+</body>
+</html>
