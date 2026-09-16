@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lorenzo Nonoy · Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070807;
+      --bg-2: #101410;
+      --lime: #c8f542;
+      --paper: #efe8d8;
+      --ink: #121512;
+      --mute: #8c9388;
+      --white: #f3f6ef;
+      --line: rgba(200,245,66,.18);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Outfit, system-ui, sans-serif;
+      font-size: 11.5pt;
+      line-height: 1.45;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    @page { size: letter; margin: 0; }
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: 0.55in 0.6in 0.5in;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .page:last-child { page-break-after: auto; }
+    .kicker {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 8.5pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+    h1, h2, h3 {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      margin: 0;
+      line-height: .95;
+    }
+    h1 { font-size: 64pt; }
+    h2 { font-size: 28pt; margin: 6px 0 14px; }
+    h3 { font-size: 16pt; line-height: 1.15; }
+    p { margin: 0 0 10px; color: #c9d0c4; }
+    .muted { color: var(--mute); }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 8pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+    }
+    .logo {
+      border: 1px solid var(--lime);
+      color: var(--lime);
+      width: 28px; height: 28px;
+      display: grid; place-items: center;
+      font-family: "Instrument Serif", serif;
+      font-size: 12pt;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .portrait {
+      width: 100%;
+      height: 3.15in;
+      object-fit: cover;
+      object-position: 50% 18%;
+      border-radius: 10px;
+    }
+    .lede { font-size: 14pt; color: var(--white); max-width: 28ch; line-height: 1.3; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    .stat b {
+      display: block;
+      font-family: "Instrument Serif", serif;
+      font-size: 28pt;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .stat span { display: block; margin-top: 6px; color: var(--mute); font-size: 8.5pt; }
+    .contact-row {
+      margin-top: 22px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 9.5pt;
+      color: var(--lime);
+    }
+    .work {
+      display: grid;
+      gap: 14px;
+    }
+    .card {
+      display: grid;
+      grid-template-columns: 1.35fr .9fr;
+      gap: 16px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      min-height: 2.35in;
+      overflow: hidden;
+    }
+    .card .copy { padding: 16px 18px; }
+    .card img { width: 100%; height: 100%; object-fit: cover; }
+    .meta {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 7.5pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--mute);
+      margin-bottom: 8px;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .chip {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 7.5pt;
+      border: 1px solid var(--line);
+      padding: 3px 7px;
+      color: #c9d0c4;
+    }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .sys {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      min-height: 1.55in;
+    }
+    .sys .num { font-family: "IBM Plex Mono", monospace; font-size: 8pt; color: var(--lime); letter-spacing: .14em; }
+    .ladder { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 10px 0 18px; }
+    .ladder div {
+      border: 1px solid var(--line);
+      padding: 8px 8px 10px;
+      font-size: 8pt;
+      min-height: .95in;
+      background: rgba(200,245,66,.04);
+    }
+    .ladder b { display: block; color: var(--lime); font-family: "IBM Plex Mono", monospace; font-size: 7.5pt; margin-bottom: 4px; }
+    .stack dt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 8pt;
+      color: var(--lime);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      width: 1.5in;
+    }
+    .stack-row { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .job { display: grid; grid-template-columns: 1.35in 1fr; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); }
+    .when { font-family: "IBM Plex Mono", monospace; font-size: 8pt; color: var(--mute); }
+    .org { color: var(--lime); font-size: 10pt; margin: 2px 0 6px; }
+    ul { margin: 0; padding-left: 16px; color: #c9d0c4; }
+    li + li { margin-top: 3px; }
+    .paper-page { background: var(--paper); color: var(--ink); }
+    .paper-page p, .paper-page li, .paper-page .muted { color: #5c6358; }
+    .paper-page h2, .paper-page h3 { color: var(--ink); }
+    .paper-page .kicker, .paper-page .org { color: #3d4a12; }
+    .paper-page .job { border-top-color: rgba(18,21,18,.14); }
+    .foot {
+      position: absolute;
+      left: .6in; right: .6in; bottom: .32in;
+      display: flex; justify-content: space-between;
+      font-size: 8pt; color: var(--mute);
+      font-family: "IBM Plex Mono", monospace;
+    }
+    .paper-page .foot { color: #6a7264; }
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="topbar"><span class="logo">LN</span><span>Portfolio · 2026</span><span>Remote · Antipolo</span></div>
+    <p class="kicker">Technology Manager · Digital Mavericks</p>
+    <div class="hero">
+      <div>
+        <h1>Lorenzo<br>Nonoy</h1>
+        <p class="lede" style="margin-top:18px">I design the systems that turn offers into revenue machines media and sales can actually run.</p>
+        <p class="muted">CRM. Webinars. Email and SMS. Attribution. Conversational AI. One operator from first click through close.</p>
+      </div>
+      <img class="portrait" src="assets/images/lorenzo-headshot-full.jpg" alt="Lorenzo Nonoy">
+    </div>
+    <div class="stats">
+      <div class="stat"><b>49</b><span>n8n workflows in a live client stack</span></div>
+      <div class="stat"><b>243</b><span>CRM fields, click to close</span></div>
+      <div class="stat"><b>20+</b><span>live funnel routes and tracking links</span></div>
+      <div class="stat"><b>7</b><span>offer tracks, free tool to partner</span></div>
+    </div>
+    <div class="contact-row">
+      <span>renzononoy@gmail.com</span>
+      <span>linkedin.com/in/lorenzocn</span>
+      <span>+63 920 477 8202</span>
+      <span>digitalmavericks.github.io/lorenzo-nonoy-portfolio</span>
+    </div>
+    <div class="foot"><span>Lorenzo Nonoy · Marketing Operations</span><span>1 / 4</span></div>
+  </section>
+
+  <section class="page">
+    <div class="topbar"><span class="logo">LN</span><span>Selected work</span><span>Client brands at Digital Mavericks</span></div>
+    <p class="kicker">Selected work</p>
+    <h2>Funnels with a spine.</h2>
+    <div class="work">
+      <article class="card">
+        <div class="copy">
+          <div class="meta">01 / Case · 2024 – Present · Publish &amp; Prosper</div>
+          <h3>End-to-end revenue funnel for an AI publishing offer.</h3>
+          <p>One CRM. Many entry points. A free tool and cheatsheet into a masterclass and VSL/cart, then a high-ticket partner suite, JV program, and multi-day challenge.</p>
+          <div class="chips"><span class="chip">GoHighLevel</span><span class="chip">n8n</span><span class="chip">StealthSeminar</span><span class="chip">Vercel</span></div>
+        </div>
+        <img src="assets/images/case-pap.jpg" alt="">
+      </article>
+      <article class="card">
+        <div class="copy">
+          <div class="meta">02 / Case · 2026 · AI Operator HQ</div>
+          <h3>Four-path book-trilogy funnel you can actually read in the CRM.</h3>
+          <p>Premium, downsell, high-ticket apply, and control. Path-based tagging so tests do not collapse into a single registered blob.</p>
+          <div class="chips"><span class="chip">Funnel architecture</span><span class="chip">Path tagging</span><span class="chip">GHL SaaS</span></div>
+        </div>
+        <img src="assets/images/case-aio.jpg" alt="">
+      </article>
+      <article class="card">
+        <div class="copy">
+          <div class="meta">03 / Case · Operating system · Multi-brand</div>
+          <h3>Webinar-to-CRM that matches follow-up to watch behavior.</h3>
+          <p>Registrants, attendees, time-based zones, CTA clickers, no-shows. Conversation AI and voice so hot leads do not sit in a tag.</p>
+          <div class="chips"><span class="chip">Attendance zones</span><span class="chip">UTM architecture</span><span class="chip">Layla / Retell</span></div>
+        </div>
+        <img src="assets/images/case-webinar.jpg" alt="">
+      </article>
+    </div>
+    <div class="foot"><span>Lorenzo Nonoy · Marketing Operations</span><span>2 / 4</span></div>
+  </section>
+
+  <section class="page">
+    <div class="topbar"><span class="logo">LN</span><span>Systems</span><span>How the work runs</span></div>
+    <p class="kicker">How I work</p>
+    <h2>The offer is not the system.</h2>
+    <div class="grid-4" style="margin-bottom:18px">
+      <article class="sys"><div class="num">SYS / 01</div><h3>Data that survives.</h3><p>UTMs, landing-page URL, join and replay links, and engagement scoring stay intact from first click through close.</p></article>
+      <article class="sys"><div class="num">SYS / 02</div><h3>Watch behavior, not just showed up.</h3><p>Time-based attendance zones and CTA tags so follow-up matches what someone actually watched.</p></article>
+      <article class="sys"><div class="num">SYS / 03</div><h3>Mail that lands.</h3><p>Sending-domain DNS and DMARC, mailbox warmup, and immediate-send automations for openers and clickers.</p></article>
+      <article class="sys"><div class="num">SYS / 04</div><h3>AI that has a job.</h3><p>Conversation AI and voice with tags, pipelines, payment links, and objection logging.</p></article>
+    </div>
+    <p class="kicker">Publish &amp; Prosper · offer ladder</p>
+    <h3 style="margin-bottom:8px">Free tool to partner suite.</h3>
+    <div class="ladder">
+      <div><b>01</b> KDP Keywords Genius</div>
+      <div><b>02</b> AI Book Cheat Sheet</div>
+      <div><b>03</b> AML masterclass</div>
+      <div><b>04</b> VSL / cart</div>
+      <div><b>05</b> APPS partner suite</div>
+      <div><b>06</b> JV / affiliate</div>
+      <div><b>07</b> Multi-day challenge</div>
+    </div>
+    <p class="kicker">Stack</p>
+    <div class="stack">
+      <div class="stack-row"><dt>CRM &amp; funnels</dt><dd class="chips" style="margin:0"><span class="chip">GoHighLevel</span><span class="chip">StealthSeminar</span><span class="chip">Vercel</span><span class="chip">Vidalytics</span><span class="chip">HTML/CSS landing pages</span></dd></div>
+      <div class="stack-row"><dt>Automation</dt><dd class="chips" style="margin:0"><span class="chip">n8n</span><span class="chip">Zapier</span><span class="chip">Webhooks</span><span class="chip">UTM architecture</span><span class="chip">Tag taxonomies</span></dd></div>
+      <div class="stack-row"><dt>AI &amp; voice</dt><dd class="chips" style="margin:0"><span class="chip">Conversation AI</span><span class="chip">Retell</span><span class="chip">SMS / email follow-up</span><span class="chip">Knowledge-base ops</span></dd></div>
+      <div class="stack-row"><dt>Deliverability</dt><dd class="chips" style="margin:0"><span class="chip">Warmy</span><span class="chip">SMTP / Mailgun</span><span class="chip">DMARC / DNS</span><span class="chip">Kit</span><span class="chip">Klaviyo</span></dd></div>
+    </div>
+    <div class="foot"><span>Lorenzo Nonoy · Marketing Operations</span><span>3 / 4</span></div>
+  </section>
+
+  <section class="page paper-page">
+    <div class="topbar"><span class="logo" style="color:#3d4a12;border-color:#3d4a12">LN</span><span>Experience</span><span>Same method, different stack</span></div>
+    <p class="kicker">Experience</p>
+    <h2>Where the systems were built.</h2>
+    <article class="job">
+      <div class="when">Jun 2024 – Present</div>
+      <div>
+        <h3>Technology Manager</h3>
+        <div class="org">Digital Mavericks Media · Remote</div>
+        <ul>
+          <li>Own marketing technology across multiple client brands: funnels, CRM, webinars, email/SMS, attribution, and AI follow-up.</li>
+          <li>Build webinar-to-CRM automation in n8n and GoHighLevel with attendance-zone tags, CTA click tags, and no-show recovery.</li>
+          <li>Design CRM data models so UTMs, landing-page URL, join/replay links, and engagement scoring survive from first click through close.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <div class="when">Oct 2023 – Mar 2024</div>
+      <div>
+        <h3>Campaign Manager &amp; Technology Specialist</h3>
+        <div class="org">PrimeSync Solutions</div>
+        <ul>
+          <li>Planned and ran digital campaigns end to end, and implemented the marketing-technology layer so launches did not wait on IT.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <div class="when">2018 – 2024</div>
+      <div>
+        <h3>Lead Generation</h3>
+        <div class="org">Mojo Global · United States (Remote)</div>
+        <ul>
+          <li>LinkedIn-first lead generation for US clients, plus automated follow-up sales teams could work.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <div class="when">Oct 2007 – Apr 2017</div>
+      <div>
+        <h3>Senior Learning Specialist</h3>
+        <div class="org">TELUS International</div>
+        <ul>
+          <li>Owned customer-service and sales training for national and international contact-center agents.</li>
+        </ul>
+      </div>
+    </article>
+    <article class="job">
+      <div class="when">Education</div>
+      <div>
+        <h3>Bachelor of Secondary Education</h3>
+        <div class="org">University of the Philippines · 2003 – 2007</div>
+        <p class="muted" style="margin:0">Certifications: Applied Coaching System · Trainer Development · Lean Six Sigma Yellow Belt · Contact Centre Management</p>
+      </div>
+    </article>
+    <div style="margin-top:18px">
+      <p class="kicker">Contact</p>
+      <h3 style="margin-top:6px">If the funnel is leaking, let’s find the hole.</h3>
+      <p>renzononoy@gmail.com · linkedin.com/in/lorenzocn · +63 920 477 8202</p>
+      <p class="muted">https://digitalmavericks.github.io/lorenzo-nonoy-portfolio/</p>
+    </div>
+    <div class="foot"><span>Lorenzo Nonoy · Marketing Operations</span><span>4 / 4</span></div>
+  </section>
+</body>
+</html>
